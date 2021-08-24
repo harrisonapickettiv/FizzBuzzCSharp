@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FizzBuzzMVC.Models;
@@ -26,19 +22,14 @@ namespace FizzBuzzMVC.Controllers
     [HttpGet]
     public IActionResult FBPage()
     {
-      FizzBuzz model = new();
-
-      model.FizzValue = 3;
-      model.BuzzValue = 5;
-
-      return View(model);
+      return View(new FizzBuzz());
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult FBPage(FizzBuzz model)
     {
-      return View(model);
+      return View(model.Update());
     }
 
     public IActionResult Privacy()

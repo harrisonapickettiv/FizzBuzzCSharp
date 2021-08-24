@@ -21,17 +21,35 @@
         <form asp-controller="Home" asp-action="FBPage" method="POST">
           <div class="form-group">
             <label asp-for="FizzValue">Fizz Value</label>
-            <input asp-for="FizzValue" class="form-control" value="@Model.FizzValue" />
+            <input asp-for="FizzValue" class="form-control" placeholder="Fizz" />
           </div>
           <div class="form-group">
             <label asp-for="BuzzValue">Buzz Value</label>
-            <input asp-for="BuzzValue" class="form-control" value="@Model.BuzzValue" />
+            <input asp-for="BuzzValue" class="form-control" placeholder="Buzz" />
           </div>
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
         <h2 class="mt-5 border-bottom border-2">Results</h2>
         <div class="table-responsive">
-
+          @if (@Model.Result.Count() > 0)
+          {
+            <table class="table table-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th colspan="5">Fizz Buzz Results</th>
+                </tr>
+              </thead>
+              @for (int i = 0; i < Model.Result.Count(); i += 5)
+              {
+                <tr>
+                  @for (int j = 0; j < 5; j++)
+                  {
+                    <td>@Model.Result[i+j]</td>
+                  }
+                </tr>
+              }
+            </table>
+          }
         </div>
       </div>
     </div>
