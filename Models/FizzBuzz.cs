@@ -6,7 +6,7 @@ namespace FizzBuzzMVC.Models
   {
     public FizzBuzz Update()
     {
-      if (FizzValue != 0 && BuzzValue != 0)
+      if (FizzValue.HasValue && BuzzValue.HasValue)
       {
         List<string> fbData = new();
         for (var i = 1; i <= 100; i++)
@@ -20,8 +20,8 @@ namespace FizzBuzzMVC.Models
       }
       return this;
     }
-    public int FizzValue { get; set; } = 3;
-    public int BuzzValue { get; set; } = 5;
+    public int? FizzValue { get; set; }
+    public int? BuzzValue { get; set; }
     public List<string> Result { get; private set; } = new();
   }
 }

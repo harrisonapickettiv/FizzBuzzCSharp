@@ -21,11 +21,11 @@
         <form asp-controller="Home" asp-action="FBPage" method="POST">
           <div class="form-group">
             <label asp-for="FizzValue">Fizz Value</label>
-            <input asp-for="FizzValue" class="form-control" placeholder="Fizz" />
+            <input asp-for="FizzValue" class="form-control" min="1" placeholder="Fizz" />
           </div>
           <div class="form-group">
             <label asp-for="BuzzValue">Buzz Value</label>
-            <input asp-for="BuzzValue" class="form-control" placeholder="Buzz" />
+            <input asp-for="BuzzValue" class="form-control" min="1" placeholder="Buzz" />
           </div>
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
